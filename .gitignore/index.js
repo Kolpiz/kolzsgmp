@@ -7,7 +7,7 @@ client.login(token)
 
 client.on('guildMemberAdd', member => {
 let role = member.guild.roles.find("name","Chomeur");
-const channel = member.guild.channels.find("name", "acceuil").send(`Bienvenue sur MineEmplois ${member.user} ! .`)
+const channel = member.guild.channels.find("name", "acceuil").send(`Bienvenue sur MineEmplois ${member.user} !`)
 member.addRole(role)
 });
 
