@@ -34,7 +34,7 @@ const demande = {
 
 	if (message.content.toLocaleLowerCase().includes("!demande")) {
 		if(message.author.bot) return;
-		message.channel.send(` ${member.message} ta demande a été prise en compte, tu vas être contacté par un recruteur.`);
+		message.channel.send(` ${message.member} ta demande a été prise en compte, tu vas être contacté par un recruteur.`);
 		message.delete()
 		client.channels.get('436532485518655498').send({embed: demande})
 	}		
