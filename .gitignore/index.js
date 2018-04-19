@@ -11,6 +11,7 @@ const channel = member.guild.channels.find("name", "acceuil").send(`Bienvenue su
 member.addRole(role)
 });
 
+client.on('message', message =>{
 const demande = {
   "url": "",
   "color": 2977512,
@@ -31,7 +32,6 @@ const demande = {
   ]
 };
 
-client.on('message', message =>{
 	if (message.content.toLocaleLowerCase().includes("!demande")) {
 		if(message.author.bot) return;
 		message.reply("ta demande a été prise en compte, tu vas être contacté par un recruteur.");
