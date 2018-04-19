@@ -20,7 +20,7 @@ const demande = {
     "text": ""
   },
   "thumbnail": {
-    "url": message.author.displayAvatarURL + ""
+    "url": message.author.displayAvatarURL
   },
   "fields": [
 	{
