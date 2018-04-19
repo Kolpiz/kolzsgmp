@@ -11,12 +11,13 @@ const channel = member.guild.channels.find("name", "acceuil").send(`Bienvenue su
 member.addRole(role)
 });
 
-if (message.content.toLocaleLowerCase().includes("!demande")) {
-if(message.author.bot) return;
-message.reply("ta demande a été prise en compte, tu vas être contacté par un recruteur.");
-message.delete()
-client.channels.get('436532485518655498').send({embed: demande})
-}		
+client.on('message', message =>{
+	if (message.content.toLocaleLowerCase().includes("!demande")) {
+		if(message.author.bot) return;
+		message.reply("ta demande a été prise en compte, tu vas être contacté par un recruteur.");
+		message.delete()
+		client.channels.get('436532485518655498').send({embed: demande})
+	}		
 	
 const demande = {
   "url": "",
