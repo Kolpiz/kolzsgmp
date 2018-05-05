@@ -1,4 +1,3 @@
-
 const discord = require('discord.js'),
 client = new discord.Client();
 const token = (process.env.TOKEN);
