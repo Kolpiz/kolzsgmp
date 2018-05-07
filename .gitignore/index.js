@@ -11,7 +11,9 @@ let role = member.guild.roles.find("name","Esclave du grand maître");
 const channel = member.guild.channels.find("name", "allishere").send(`Wesh ${member.user}, t'es maintenant l'esclave du grand maître.`)
 member.addRole(role)
   
-  
+});
+
+client.on('message', message => {
   
 var Empire = client.guilds.get(message.guild.id).roles.find("name", "Empire");
 var Révolution = client.guilds.get(message.guild.id).roles.find("name", "Révolution");
