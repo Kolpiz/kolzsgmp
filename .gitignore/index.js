@@ -5,31 +5,16 @@ var prefix = "/";
 
 client.login(token)
 
+client.on("message", message => { 
+let argument = message.content.split("/clear").slice(1)
+if(!argument) return message.channel.send("Merci d'indiquer de respecter le modèle suivant : ``/clear ( nombre de 0 à 100)``").then(m => m.delete(20000))
+var person = message.member.permissions
+function dot() {
+message.channel.bulkDelete(argument);
+};
+function doNot() {
+message.channel.send(" ").then(m => m.delete(20000));
+};
+person.has("MANAGE_MESSAGES") ? dot() : doNot();
+ });
 
-client.on('guildMemberAdd', member => {
-let role = member.guild.roles.find("name","Esclave du grand maître");
-const channel = member.guild.channels.find("name", "allishere").send(`Wesh ${member.user}, t'es maintenant l'esclave du grand maître.`)
-member.addRole(role)
-  
-});
-
-client.on('message', message => {
-  
-var Empire = client.guilds.get(message.guild.id).roles.find("name", "Empire");
-var Révolution = client.guilds.get(message.guild.id).roles.find("name", "Révolution");
-
-if(message.content.toLocaleLowerCase() == ("/empire")){
- message.channel.send(`Tu fais partis de l'empire, tu as choisis ton camp !`);
- message.guild.member(message.author).addRole(Empire);
- message.guild.member(message.author).removeRole(Révolution);
- }
-
- if(message.content.toLocaleLowerCase() == ("/révolution")){
- message.channel.send(`Tu fais partis de la révoltuion ! `);
- message.guild.member(message.author).addRole(Révolution);
- message.guild.member(message.author).removeRole(Empire);
- }
-  
-  
-  
-});
