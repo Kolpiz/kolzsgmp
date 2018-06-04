@@ -20,4 +20,5 @@ function doNot() {
 message.channel.send(" ").then(m => m.delete(20000));
 };
 person.has("MANAGE_MESSAGES") ? dot() : doNot();
+ 
  });
