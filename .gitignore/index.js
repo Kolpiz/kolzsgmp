@@ -11,13 +11,15 @@ client.login(token)
 
 client.on("message", message => { 
 
- if (message.content.startsWith(prefix + 'annonce')) {
-if (!message.member.hasPermission('ADMINISTRATOR'))
-return message.channel.send("Tu n'as pas la permissions !");
-message.delete()
-let args = message.content.split(' ')
-args.shift()
-message.channel.send(args.join(' '))
-    }
- 
+let argument = message.content.split("/clear").slice(1)
+if(!argument) return message.channel.send("Merci d'indiquer de respecter le modèle suivant : ``/clear ( nombre de 0 à 100)``").then(m => m.delete(20000))
+var person = message.member.permissions
+function dot() {
+message.channel.bulkDelete(argument);
+};
+function doNot() {
+message.channel.send(" ").then(m => m.delete(20000));
+};
+person.has("MANAGE_MESSAGES") ? dot() : doNot();
+
  });
