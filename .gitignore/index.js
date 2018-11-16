@@ -11,18 +11,16 @@ client.on("ready", () => {
 client.login(token)
 
 client.on('guildMemberAdd', member => {
-	
-
 const channel = member.guild.channels.find(channel => channel.name === "👋bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 !`)
 
        let guest = member.guild.roles.get("483255290108706816");
         member.addRole(guest).catch(console.error);
-
 });
 
 client.on('guildMemberRemove', member => {
 const channel = member.guild.channels.find(channel => channel.name === "👋bienvenue").send(` **${member.user.username}** a quitté notre communautés! 😯`);
 });
+
 
 client.on('message', message =>{
     
@@ -37,7 +35,7 @@ message.guild.member(message.author).addRole(news);
 if (message.content == "!stop-news"){	
 	
 	let news = message.guild.roles.get("463878931423166484");
-	if(message.member.roles.has(news)) {
+	if(message.member.roles.has(news))
 		message.channel.send("Désolé du dérangement occasionné !\ n_La direction de Parks-Mc Community_")
 	message.guild.member(message.author).removeRole(news);	
 	} else {
