@@ -24,7 +24,6 @@ const channel = member.guild.channels.find(channel => channel.name === "👋bien
 
 client.on('message', message =>{
     
-var newsRole = client.guilds.get(message.guild.id).roles.find("name", "NEWS");
 var news = message.guild.roles.get("463878931423166484");
 	
 if(message.content.toLocaleLowerCase() == ("!news")){
@@ -34,9 +33,12 @@ message.guild.member(message.author).addRole(news);
 }
 	
 if(message.content.toLocaleLowerCase() == ("!stop-news")){
-	message.delete()
+	
+	let newsRole = client.guilds.get(message.guild.id).roles.find("name", "NEWS");
 	message.author.send("Désolé du dérangement occasionné !\n \n_La direction de Parks-Mc Community_")
-	message.guild.member(message.author).removeRole(newsRole);
+	message.delete()
+ 	message.guild.member(message.author).removeRole(newsRole);
+	
 }
 
 	
