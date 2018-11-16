@@ -17,10 +17,6 @@ const channel = member.guild.channels.find(channel => channel.name === "👋bien
 
        let guest = member.guild.roles.get("483255290108706816");
         member.addRole(guest).catch(console.error);
-	
-    }
-	
-
 
 });
 
