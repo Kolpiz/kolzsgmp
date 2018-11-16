@@ -32,18 +32,17 @@ message.guild.member(message.author).addRole(news);
 	
 }
 	
-if (message.content == "!stop-news") {	
+if (message.content == "!stop-news") {		
 let news = message.guild.roles.get("463878931423166484");
-	if(message.member.roles.has(news)){
-		
-		message.channel.send("Désolé du dérangement occasionné !\ n_La direction de Parks-Mc Community_")
-		
+	if(message.member.roles.has(news)){	
+	message.channel.send("Désolé du dérangement occasionné !\ n_La direction de Parks-Mc Community_")	
 	message.guild.member(message.author).removeRole(news);	
-		
 	} else {
-	
-		message.channel.send("Tu n'as pas le rôle News !")
-	}	
+		
+	if!(message.member.roles.has(news)){
+	message.channel.send("Tu n'as pas le rôle News !")
+		}
+	}
 }
 	
 if (message.content.startsWith(prefix + 'annonce')) {
