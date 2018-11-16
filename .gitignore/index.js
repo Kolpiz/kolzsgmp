@@ -39,7 +39,7 @@ let news = message.guild.roles.get("463878931423166484");
 	message.guild.member(message.author).removeRole(news);	
 	} else {
 		
-	if!(message.member.roles.has(news)){
+	if(!message.member.roles.has(news)){
 	message.channel.send("Tu n'as pas le rôle News !")
 		}
 	}
