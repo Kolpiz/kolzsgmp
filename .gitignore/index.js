@@ -33,8 +33,14 @@ message.guild.member(message.author).addRole(news);
 }
 	
 if(message.content.toLocaleLowerCase() == ("!stop-news")){
-message.author.send("Désolé du dérangement occasionné !\n \n_La direction de Parks-Mc Community_")
-message.guild.member(message.author).removeRole(newsRole);
+	
+	if(message.member.roles.has(newsRole))){
+	message.author.send("Désolé du dérangement occasionné !\n \n_La direction de Parks-Mc Community_")
+	message.guild.member(message.author).removeRole(newsRole);
+	
+	} else {
+	message.channel.send("Tu n'as pas le rôle News !")
+	}
 }
 
 	
