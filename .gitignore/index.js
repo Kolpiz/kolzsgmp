@@ -13,8 +13,10 @@ client.login(token)
 client.on('guildMemberAdd', member => {
 	
 const channel = member.guild.channels.find("name", "👋bienvenue").send(`Bienvenue chez les CoasterFans ${member.user} !`)
+
        let guest = message.guild.roles.get("483255290108706816");
-        message.guild.member(message.author).addRole(guest);
+        member.addRole(guest).catch(console.error);
+
 
 });
 
