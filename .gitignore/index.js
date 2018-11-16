@@ -12,10 +12,14 @@ client.login(token)
 
 client.on('guildMemberAdd', member => {
 	
+
 const channel = member.guild.channels.find(channel => channel.name === "👋bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 !`)
 
        let guest = member.guild.roles.get("483255290108706816");
         member.addRole(guest).catch(console.error);
+	
+    }
+	
 
 
 });
@@ -26,6 +30,15 @@ const channel = member.guild.channels.find(channel => channel.name === "👋bien
 
 client.on('message', message =>{
     
+if (message.content == "!news"){
+	
+let news = message.guild.roles.get("463878931423166484");
+message.channel.send("Merci d'avoir prit le grade News !n\_La direction de Parks-Mc Community_")
+message.guild.member(message.author).addRole(news);
+	
+}
+	
+	
 if (message.content.startsWith(prefix + 'annonce')) {
 if (!message.member.hasPermission('ADMINISTRATOR'))
 return message.channel.send("Tu n'as pas la permissions !");
