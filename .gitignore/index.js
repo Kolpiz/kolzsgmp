@@ -36,6 +36,7 @@ if(message.content.toLocaleLowerCase() == ("!stop-news")){
 	
 	let member = message.member
 	let news = message.guild.roles.find(r => r.name === "NEWS");
+	if(message.member.roles.has(news))
 	message.author.send("Désolé du dérangement occasionné !\n \n_La direction de Parks-Mc Community_")
 	message.delete()
 	member.removeRole(news).catch(console.error);
