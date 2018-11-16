@@ -11,7 +11,13 @@ client.on("ready", () => {
 client.login(token)
 
 client.on('guildMemberAdd', member => {
+	
 const channel = member.guild.channels.find("name", "👋bienvenue").send(`Bienvenue chez les CoasterFans ${member.user} !`)
+
+       var guest = client.guilds.get(message.guild.id).roles.find("id", "483255290108706816");
+
+        message.guild.member(message.author).addRole(guest);
+
 });
 
 client.on('guildMemberRemove', member => {
