@@ -33,12 +33,12 @@ message.guild.member(message.author).addRole(news);
 }
 	
 if (message.content == "!stop-news") {	
-	if(message.member.roles.has(news)){	
+	if(message.member.roles.has(news))	
 		message.channel.send("Désolé du dérangement occasionné !\n \n_La direction de Parks-Mc Community_")	
 		message.guild.member(message.author).removeRole(news);
 		
 	}
-}
+
 	
 if (message.content.startsWith(prefix + 'annonce')) {
 if (!message.member.hasPermission('ADMINISTRATOR'))
