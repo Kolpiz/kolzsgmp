@@ -26,23 +26,22 @@ client.on('message', message =>{
     
 	
 if(message.content.toLocaleLowerCase() == ("!news")){
-let news = message.guild.roles.get("463878931423166484");
-message.delete()
-message.author.send("Merci d'avoir prit le grade News !\n \n_La direction de Parks-Mc Community_")
-message.guild.member(message.author).addRole(news);	
+	
+	let news = message.guild.roles.get("463878931423166484");
+	message.author.send("Merci d'avoir prit le grade News !\n \n_La direction de Parks-Mc Community_")
+	message.delete()
+	message.guild.member(message.author).addRole(news);	
 }
 	
 if(message.content.toLocaleLowerCase() == ("!stop-news")){
 	
 	let member = message.member
 	let news = message.guild.roles.find(r => r.name === "NEWS");
-	if(message.member.roles.has(news))
 	message.author.send("Désolé du dérangement occasionné !\n \n_La direction de Parks-Mc Community_")
 	message.delete()
 	member.removeRole(news).catch(console.error);
 	
 }
-
 	
 if (message.content.startsWith(prefix + 'annonce')) {
 if (!message.member.hasPermission('ADMINISTRATOR'))
