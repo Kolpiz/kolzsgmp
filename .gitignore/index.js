@@ -34,7 +34,7 @@ message.guild.member(message.author).addRole(news);
 	
 if (message.content == "!stop-news") {	
 	message.author.send("Désolé du dérangement occasionné !\n \n_La direction de Parks-Mc Community_")
-	member.removeRole(news).catch(console.error);	
+	message.author.removeRole(news).catch(console.error);	
 }
 
 	
