@@ -27,16 +27,16 @@ client.on('message', message =>{
 var newsRole = client.guilds.get(message.guild.id).roles.find("name", "NEWS");
 var news = message.guild.roles.get("463878931423166484");
 	
-if (message.content == "!news"){	
+if(message.content.toLocaleLowerCase() == ("!news")){
+message.delete()
 message.author.send("Merci d'avoir prit le grade News !\n \n_La direction de Parks-Mc Community_")
 message.guild.member(message.author).addRole(news);	
 }
 	
 if(message.content.toLocaleLowerCase() == ("!stop-news")){
-	if(message.member.roles.has(newsRole)){	
+	message.delete()
 	message.author.send("Désolé du dérangement occasionné !\n \n_La direction de Parks-Mc Community_")
 	message.guild.member(message.author).removeRole(newsRole);
-	}
 }
 
 	
