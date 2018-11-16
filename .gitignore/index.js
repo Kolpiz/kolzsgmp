@@ -33,13 +33,13 @@ message.guild.member(message.author).addRole(news);
 }
 	
 if (message.content == "!stop-news") {		
-let news = message.guild.roles.get("463878931423166484");
-	if(message.member.roles.has(news)){	
+	if(message.member.roles.has(463878931423166484)){	
 	message.channel.send("Désolé du dérangement occasionné !\ n_La direction de Parks-Mc Community_")	
-	message.guild.member(message.author).removeRole(news);	
+	message.guild.member(message.author).removeRole(news);
+		
 	} else {
 		
-	if(!message.member.roles.has(news)){
+	if(message.member.roles.has(463878931423166484)){
 	message.channel.send("Tu n'as pas le rôle News !")
 		}
 	}
