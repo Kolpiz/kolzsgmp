@@ -12,7 +12,7 @@ client.login(token)
 
 client.on('guildMemberAdd', member => {
 	
-const channel = member.guild.channels.send("name", "👋bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 !`)
+const channel = member.guild.channels.find(channel => channel.name === "👋bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 !`)
 
        let guest = member.guild.roles.get("483255290108706816");
         member.addRole(guest).catch(console.error);
@@ -21,7 +21,7 @@ const channel = member.guild.channels.send("name", "👋bienvenue").send(`Bienve
 });
 
 client.on('guildMemberRemove', member => {
-const channel = member.guild.channels.send('name', "👋bienvenue").send(` **${member.user.username}** a quitté notre communautés! 😯`);
+const channel = member.guild.channels.find(channel => channel.name === "👋bienvenue").send(` **${member.user.username}** a quitté notre communautés! 😯`);
 });
 
 client.on('message', message =>{
