@@ -18,7 +18,7 @@ const channel = member.guild.channels.find(channel => channel.name === "🖐-bie
 });
 
 client.on('guildMemberRemove', member => {
-const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(` **${member.user.username}** a quitté notre communautés! 😯 `);
+const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(` **${member.user.username}** a quitté notre communautée! 😯 `);
 });
 
 
