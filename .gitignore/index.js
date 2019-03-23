@@ -1,7 +1,6 @@
 const discord = require('discord.js'),
 client = new discord.Client();
 const token = (process.env.TOKEN);
-var memberCount = client.users.size;
 var prefix = ".";
 
 client.on("ready", () => {
@@ -19,7 +18,7 @@ const channel = member.guild.channels.find(channel => channel.name === "🖐-bie
 });
 
 client.on('guildMemberRemove', member => {
-const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(` **${member.user.username}** a quitté notre communautés! Nous sommes maintenant **${memberCount}** ! 😯 `);
+const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(` **${member.user.username}** a quitté notre communautés! Nous sommes maintenant **${guild.memberCount}** ! 😯 `);
 });
 
 
