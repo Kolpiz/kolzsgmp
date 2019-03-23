@@ -1,6 +1,7 @@
 const discord = require('discord.js'),
 client = new discord.Client();
 const token = (process.env.TOKEN);
+var memberCount = client.users.size;
 var prefix = ".";
 
 client.on("ready", () => {
@@ -11,14 +12,14 @@ client.on("ready", () => {
 client.login(token)
 
 client.on('guildMemberAdd', member => {
-const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 ! Nous sommes maintenant **${member.count}** !`)
+const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 ! Nous sommes maintenant **${memberCount}** !`)
 
        let guest = member.guild.roles.get("483255290108706816");
         member.addRole(guest).catch(console.error);
 });
 
 client.on('guildMemberRemove', member => {
-const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(` **${member.user.username}** a quitté notre communautés! 😯`);
+const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(` **${member.user.username}** a quitté notre communautés! Nous sommes maintenant **${memberCount}** ! 😯 `);
 });
 
 
