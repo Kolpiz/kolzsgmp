@@ -104,6 +104,15 @@ message.channel.send(args.join(' '))
         message.channel.send(args.join(' '))
         client.user.setPresence({ game: { name: args.join(' '), type: 0}});
             }
+	
+	  if (message.content.startsWith(prefix + 'avatar') && (message.content.includes("https://"))) {
+        const argsjeu = message.content.split(' ')
+        argsjeu.shift()
+        client.user.setAvatar(argsjeu.join(' '));
+        message.channel.send("Mon avatar vient d'être changé !")
+    } else if (message.content.startsWith(prefix + 'avatar') && (!message.content.includes("https://"))) {
+    message.channel.send("Tu dois inséré un lien commencant par https:// !")
+    }
             
 	
 });
