@@ -11,7 +11,10 @@ client.on("ready", () => {
 client.login(token)
 
 client.on('guildMemberAdd', member => {
-const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 !`)
+
+	    const guild = member.guild;
+
+const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 ! Nous sommes maintenant **${guild.memberCount}** !`)
 
        let guest = member.guild.roles.get("558726858347380785");
         member.addRole(guest).catch(console.error);
