@@ -97,4 +97,13 @@ message.channel.send(args.join(' '))
         }
       }
   
+	
+    if (message.content.startsWith(prefix + 'jeu')) {
+        let args = message.content.split(' ')
+        args.shift()
+        message.channel.send(args.join(' '))
+        client.user.setPresence({ game: { name: args.join(' '), type: 0}});
+            }
+            
+	
 });
