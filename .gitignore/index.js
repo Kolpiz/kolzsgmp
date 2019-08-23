@@ -135,7 +135,7 @@ message.channel.send(args.join(' '))
     if (message.content.toLocaleLowerCase().includes(".mute")) {
         if (!message.member.hasPermission('MANAGE_ROLES'))
      return message.channel.send("Tu n'as pas la permissions !");
-     var muteRole = client.guilds.get(message.guild.id).roles.find("name", "Mute"); 
+     var muteRole = client.guilds.get(message.guild.id).roles.find("name", "{-MUTE-}"); 
      var member = message.mentions.members.first();
      if (!member.roles.has(muteRole.id)) {
             message.delete();
@@ -157,7 +157,7 @@ message.channel.send(args.join(' '))
          return message.channel.send("Tu n'as pas la permissions !");
            
          var member = message.mentions.members.first();
-         var muteRole = client.guilds.get(message.guild.id).roles.find("name", "Mute"); 
+         var muteRole = client.guilds.get(message.guild.id).roles.find("name", "{-MUTE-}"); 
 
          if (member.roles.has(muteRole.id)) {
          
