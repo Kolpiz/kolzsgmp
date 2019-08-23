@@ -132,7 +132,7 @@ message.channel.send(args.join(' '))
       person.has("MANAGE_MESSAGES") ? dot() : doNot();
     }
 
-    if (message.content.toLocaleLowerCase().includes("/mute")) {
+    if (message.content.toLocaleLowerCase().includes(".mute")) {
         if (!message.member.hasPermission('MANAGE_ROLES'))
      return message.channel.send("Tu n'as pas la permissions !");
      var muteRole = client.guilds.get(message.guild.id).roles.find("name", "Mute"); 
@@ -151,7 +151,7 @@ message.channel.send(args.join(' '))
            }
 
 
-           if (message.content.toLocaleLowerCase().includes("/unmute")) {
+           if (message.content.toLocaleLowerCase().includes(".unmute")) {
           
             if (!message.member.hasPermission('MANAGE_ROLES'))
          return message.channel.send("Tu n'as pas la permissions !");
