@@ -26,6 +26,24 @@ const channel = member.guild.channels.find(channel => channel.name === "🖐-bie
 
 
 client.on('message', message =>{
+	
+	    if (message.content.startsWith(prefix + 'iclear')) {
+   let argument = message.content.split(" ").slice(1)
+   const amount = parseInt(argument[0]);
+   if (isNaN(amount)) {
+       return message.channel.send(`Merci de mettre un nombre ! ${message.author}`).then(m => m.delete(60000));
+   }
+      if(!argument) return message.channel.send("Merci de mettre un nombre !").then(m => m.delete(20000))
+    var person = message.member.permissions
+     function dot() {
+        message.channel.bulkDelete(argument);
+        message.channel.send(`**${amount}** messages ont été supprimés ${message.author}.`).then(m => m.delete(60000));
+     };
+      function doNot() {
+        message.channel.send(`Tu n'as pas la permission ! Quel dommage :sob: ${member.author    }`).then(m => m.delete(60000));
+     };
+      person.has("MANAGE_MESSAGES") ? dot() : doNot();
+    }
     
 	
 if(message.content.toLocaleLowerCase() == ("!news")){
@@ -112,24 +130,6 @@ message.channel.send(args.join(' '))
         message.channel.send("Mon avatar vient d'être changé !")
     } else if (message.content.startsWith(prefix + 'avatar') && (!message.content.includes("https://"))) {
     message.channel.send("Tu dois inséré un lien commencant par https:// !")
-    }
-            
-	  if (message.content.startsWith(prefix + 'clear')) {
-   let argument = message.content.split(" ").slice(1)
-   const amount = parseInt(argument[0]);
-   if (isNaN(amount)) {
-       return message.channel.send(`Merci de mettre un nombre ! ${message.author}`);
-   }
-      if(!argument) return message.channel.send("Merci de mettre un nombre !");
-    var person = message.member.permissions
-     function dot() {
-        message.channel.bulkDelete(argument);
-        message.channel.send(`**${amount}** messages ont été supprimés ${message.author}.`);
-     };
-      function doNot() {
-        message.channel.send(`Tu n'as pas la permission ! Quel dommage :sob: ${member.author}`);
-     };
-      person.has("MANAGE_MESSAGES") ? dot() : doNot();
     }
 
     if (message.content.toLocaleLowerCase().includes(".mute")) {
