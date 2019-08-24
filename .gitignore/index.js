@@ -44,7 +44,10 @@ client.on('message', message =>{
      };
       person.has("MANAGE_MESSAGES") ? dot() : doNot();
     }
+	
+});
     
+client.on('message', message =>{
 	
 if(message.content.toLocaleLowerCase() == ("!news")){
 	
