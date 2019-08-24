@@ -38,14 +38,14 @@ client.on('message', message =>{
     
         message.channel.bulkDelete(amount);
         message.channel.send(`**${amount}** messages ont été supprimés ${message.author}.`).then(m => m.delete(60000));
-      } else {
+      }
 		    
       function doNot() {
         message.channel.send(`Tu n'as pas la permission ! Quel dommage :sob: ${member.author}`).then(m => m.delete(60000));
      };
       person.has("MANAGE_MESSAGES") ? dot() : doNot();
     }
-	    }
+	    
 	
 });
     
