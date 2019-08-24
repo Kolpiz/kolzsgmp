@@ -138,7 +138,7 @@ message.channel.send(args.join(' '))
      var muteRole = client.guilds.get(message.guild.id).roles.find("name", "{-MUTE-}"); 
      var member = message.mentions.members.first();
      if (!member.roles.has(muteRole.id)) {
-            message.delete();
+
              member.addRole(muteRole).then((member) => {
                  message.channel.send(`**   ${member}** est désormais mute.`)
              }).catch(() => {
