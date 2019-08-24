@@ -42,7 +42,6 @@ client.on('message', message =>{
       function doNot() {
         message.channel.send(`Tu n'as pas la permission ! Quel dommage :sob: ${member.author}`).then(m => m.delete(60000));
      };
-      person.has("MANAGE_MESSAGES") ? dot() : doNot();
     }
 	    
 	
