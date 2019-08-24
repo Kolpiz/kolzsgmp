@@ -33,17 +33,19 @@ client.on('message', message =>{
    if (isNaN(amount)) {
        return message.channel.send(`Merci de mettre un nombre ! ${message.author}`).then(m => m.delete(60000));
    }
-      if(!argument) return message.channel.send("Merci de mettre un nombre !").then(m => m.delete(20000))
-    var person = message.member.permissions
-     function dot() {
-        message.channel.bulkDelete(argument);
+      if(!argument) return message.channel.send("Merci de mettre un nombre !").then(m => m.delete(20000)) {
+       var person = message.member.permissions
+    
+        message.channel.bulkDelete(amount);
         message.channel.send(`**${amount}** messages ont été supprimés ${message.author}.`).then(m => m.delete(60000));
-     };
+      } else {
+		    
       function doNot() {
-        message.channel.send(`Tu n'as pas la permission ! Quel dommage :sob: ${member.author    }`).then(m => m.delete(60000));
+        message.channel.send(`Tu n'as pas la permission ! Quel dommage :sob: ${member.author}`).then(m => m.delete(60000));
      };
       person.has("MANAGE_MESSAGES") ? dot() : doNot();
     }
+	    }
 	
 });
     
