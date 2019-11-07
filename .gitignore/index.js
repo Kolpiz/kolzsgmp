@@ -4,7 +4,7 @@ const token = (process.env.TOKEN);
 var prefix = ".";
 
 client.on("ready", () => {
-	client.user.setPresence({ game: { name: 'Parks-Mc Community 2.0', type: 0}});
+	client.user.setPresence({ game: { name: 'Parks-Mc Community Chrimas ! ', type: 0}});
 });
 
 
@@ -14,15 +14,15 @@ client.on('guildMemberAdd', member => {
 
 	    const guild = member.guild;
 
-const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(`Bienvenue ${member.user} sur **🔴🔷Parks-Mc Community 2.0🔷🔴**🎉🤗 ! Nous sommes maintenant **${guild.memberCount}** !`);
+const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(`_ __Oh Oh Oh__ _! Bienvenue ${member.user} ! Passe un Bon Noël sur Parks-Mc Community !! :snowflake: :christmas_tree: Nous sommes maintenant **${guild.memberCount}** !`);
 
        let guest = member.guild.roles.get("558726858347380785");
         member.addRole(guest).catch(console.error);
 });
 
 client.on('guildMemberRemove', member => {
-const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(` **${member.user.username}** a quitté notre communautée! 😯 `);
-});
+const channel = member.guild.channels.find(channel => channel.name === "🖐-bienvenue").send(` **${member.user.username}** a quitté notre communautée ! :snowflake:  `);
+}); 
 
 
 client.on('message', message =>{
@@ -126,13 +126,24 @@ message.channel.send(args.join(' '))
         client.user.setPresence({ game: { name: args.join(' '), type: 0}});
             }
 	
-	  if (message.content.startsWith(prefix + 'avatar') && (message.content.includes("https://"))) {
+	  if (message.content.startsWith(prefix + 'avatarbot') && (message.content.includes("https://"))) {
         const argsjeu = message.content.split(' ')
         argsjeu.shift()
         client.user.setAvatar(argsjeu.join(' '));
         message.channel.send("Mon avatar vient d'être changé !")
+        message.delete();
     } else if (message.content.startsWith(prefix + 'avatar') && (!message.content.includes("https://"))) {
+        message.delete();
     message.channel.send("Tu dois inséré un lien commencant par https:// !")
+    }
+
+    if (message.content.startsWith(prefix + 'avatar')) {
+        const useru = message.mentions.users.first() || message.author;
+        const avatarEmbed = new discord.RichEmbed()
+            .setImage(useru.avatarURL);
+        message.channel.send(avatarEmbed);        
+        message.channel.send(`Voici la photo de profile de **${useru.username}.**`)
+        message.delete();
     }
 
     if (message.content.toLocaleLowerCase().includes(".mute")) {
@@ -181,5 +192,87 @@ message.channel.send(args.join(' '))
 
 
 
+            const help = {
+  "url": " ",
+  "color": 12190976,
+  "footer": {
+    "icon_url": "https://cdn.discordapp.com/attachments/558726773597011989/642087526357794816/JPEG_20181113_183039.jpg",
+    "text": "Parks-Mc Bot by Natthh."
+  },
+  "thumbnail": {
+    "url": "https://cdn.discordapp.com/attachments/558726773597011989/642087526357794816/JPEG_20181113_183039.jpg"
+  },
+  "author": {
+    "name": 'Voici toutes les commandes du PMC bot : ',
+    "url": " ",
+    "icon_url": "https://cdn.discordapp.com/attachments/558726773597011989/642087526357794816/JPEG_20181113_183039.jpg"
+  },
+  "fields": [
+    {
+      "name": "``!news``",
+      "value": "Vous donne le grade News pour connaitre toutes les informations de nos partenaires !",
+      "inline": false
+    },
+    {
+      "name": "``!stop-news``",
+      "value": "Vous enlève le grade News.",
+      "inline": false
+    },
+    {
+      "name": "``.avatar [Joueur]``",
+      "value": "Vous envoie la photo de profile du joueur mentionné.",
+      "inline": false
+    },
+    {
+      "name": "``.annonce``",
+      "value": "Commande permettant d'être ventriloque. (Permission Admin nécessaire.)",
+      "inline": false
+    },
+    {
+      "name": "``.kick``",
+      "value": "Permet de kick un joueur du discord. (Permission Admin nécessaire.)",
+      "inline": false
+    },
+    {
+      "name": "``.ban``",
+      "value": "Permet de bannir un joueur du discord. (Permission Admin nécessaire.)",
+      "inline": false
+    },  
+    {
+        "name": "``.mute``",
+        "value": "Permet de mute un joueur du discord. (Permission Admin nécessaire.)",
+        "inline": false
+      }, 
+      {
+        "name": "``.unmute``",
+        "value": "Permet d'unmute un joueur du discord. (Permission Admin nécessaire.)",
+        "inline": false
+      }, 
+	{
+      "name": "``.avatarbot``",
+      "value": "Permet de changer la photo de profile du bot. (Permission Admin nécessaire.)",
+      "inline": false
+    },
+    {
+      "name": "``.jeu``",
+      "value": "Permet de changer le jeu du bot. (Permission Admin nécessaire.)",
+      "inline": false
+    },
+	{
+      "name": "``.help``",
+      "value": "Vous envoie cette liste.",
+      "inline": false
+    }
+  ]
+};
+		
+	if (message.content.toLocaleLowerCase() === `.help`) {
+	if (message.channel.type == 'dm') return;
+	message.author.send({embed: help});
+    message.channel.send(`La liste de mes commandes viennent de t'être envoyé ${message.author} ! `)
+    .then(sentMessage => sentMessage.delete(150000))
+    .catch(error => {
+    });
+}
   
 });
